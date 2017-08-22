@@ -25,6 +25,15 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+on early-init
+    rm /data/logcat.txt
+
+on early-boot
+service logcat_debug /system/bin/logcat -b all -f /data/logcat.txt -v threadtime
+    class main
+    user root
+    group system
+
 on boot
     # change file owner for factory test
     chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/firmware_version
