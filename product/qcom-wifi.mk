@@ -1,5 +1,6 @@
 # Wifi
-
+PRODUCT_PACKAGES += \
+    libwcnss_qmi
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
