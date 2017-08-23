@@ -30,12 +30,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "vendor_init.h"
 #include "property_service.h"
-#include "log.h"
-#include "util.h"
+#include "vendor_init.h"
 
 #include "init_msm8916.h"
+
+namespace android {
+namespace init {
 
 static int display_density = 320;
 
@@ -53,7 +54,7 @@ void init_target_properties()
 {
     std::string device;
 
-    device = property_get("ro.cm.device");
+    device = android::base::GetProperty("ro.cm.device");
     if (device != "tomato")
         return;
 
