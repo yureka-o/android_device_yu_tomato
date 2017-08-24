@@ -35,7 +35,24 @@
 
 #include "init_msm8916.h"
 
+using android::base::GetProperty;
+using android::base::SetProperty;
+using android::base::Split;
+using android::base::ReadFileToString;
 static int display_density = 320;
+
+void import_kernel_cmdline(bool in_qemu,
+                           const std::function<void(const std::string&, const std::string&, bool)>& fn) {
+    std::string cmdline;
+    ReadFileToString("/proc/cmdline", &cmdline);
+
+    for (const auto& entry : Split(android::base::Trim(cmdline), " ")) {
+        std::vector<std::string> pieces = Split(entry, "=");
+        if (pieces.size() == 2) {
+            fn(pieces[0], pieces[1], in_qemu);
+        }
+    }
+}
 
 static void import_cmdline(const std::string& key,
         const std::string& value, bool for_emulator __attribute__((unused)))
@@ -51,7 +68,7 @@ void init_target_properties()
 {
     std::string device;
 
-    device = android::base::GetProperty("ro.cm.device");
+    device = GetProperty("ro.cm.device");
     if (device != "tomato")
         return;
 
@@ -60,20 +77,20 @@ void init_target_properties()
     snprintf(density, sizeof(density), "%d", display_density);
     property_set("ro.sf.lcd_density", density);
     if (display_density == 480) {
-        property_set("ro.product.model", "YU5510");
-        property_set("dalvik.vm.heapstartsize", "16m");
-        property_set("dalvik.vm.heapgrowthlimit", "192m");
-        property_set("dalvik.vm.heapsize", "512m");
-        property_set("dalvik.vm.heaptargetutilization", "0.75");
-        property_set("dalvik.vm.heapminfree", "2m");
-        property_set("dalvik.vm.heapmaxfree", "8m");
+        SetProperty("ro.product.model", "YU5510");
+        SetProperty("dalvik.vm.heapstartsize", "16m");
+        SetProperty("dalvik.vm.heapgrowthlimit", "192m");
+        SetProperty("dalvik.vm.heapsize", "512m");
+        SetProperty("dalvik.vm.heaptargetutilization", "0.75");
+        SetProperty("dalvik.vm.heapminfree", "2m");
+        SetProperty("dalvik.vm.heapmaxfree", "8m");
     } else {
-        property_set("ro.product.model", "AO5510");
-        property_set("dalvik.vm.heapstartsize", "8m");
-        property_set("dalvik.vm.heapgrowthlimit", "192m");
-        property_set("dalvik.vm.heapsize", "512m");
-        property_set("dalvik.vm.heaptargetutilization", "0.75");
-        property_set("dalvik.vm.heapminfree", "512k");
-        property_set("dalvik.vm.heapmaxfree", "8m");
+        SetProperty("ro.product.model", "AO5510");
+        SetProperty("dalvik.vm.heapstartsize", "8m");
+        SetProperty("dalvik.vm.heapgrowthlimit", "192m");
+        SetProperty("dalvik.vm.heapsize", "512m");
+        SetProperty("dalvik.vm.heaptargetutilization", "0.75");
+        SetProperty("dalvik.vm.heapminfree", "512k");
+        SetProperty("dalvik.vm.heapmaxfree", "8m");
     }
 }
