@@ -28,6 +28,9 @@
 on early-init
     rm /data/logcat.txt
 
+on init
+    export LD_SHIM_LIBS /system/vendor/lib64/libcneapiclient.so|libshim_protobuf.so
+
 on early-boot
 service logcat_debug /system/bin/logcat -b all -f /data/logcat.txt -v threadtime
     class main
