@@ -51,6 +51,7 @@ LOCAL_CFLAGS += -DDEFAULT_DENOISE_MODE_ON
 
 LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/../stack/common \
+        frameworks/native/include \
         frameworks/native/include/media/openmax \
         hardware/qcom/display/msm8909/libgralloc \
         hardware/qcom/display/msm8909/libqdutils \
