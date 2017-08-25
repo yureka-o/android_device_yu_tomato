@@ -23,7 +23,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 #    $(LOCAL_PATH)/overlay-lineage
 
 # Due to multi-density builds, these are set by init
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model ro.sf.lcd_density
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
 # Include package config fragments
 include $(LOCAL_PATH)/product/*.mk
