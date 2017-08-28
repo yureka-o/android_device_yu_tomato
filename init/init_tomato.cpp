@@ -38,7 +38,7 @@
 #include "init_msm8916.h"
 
 using android::base::GetProperty;
-using android::base::SetProperty;
+using android::base::property_set;
 
 static int display_density = 320;
 
@@ -65,20 +65,20 @@ void init_target_properties()
     snprintf(density, sizeof(density), "%d", display_density);
     property_set("ro.sf.lcd_density", density);
     if (display_density == 480) {
-        SetProperty("ro.product.model", "YU5510");
-        SetProperty("dalvik.vm.heapstartsize", "16m");
-        SetProperty("dalvik.vm.heapgrowthlimit", "192m");
-        SetProperty("dalvik.vm.heapsize", "512m");
-        SetProperty("dalvik.vm.heaptargetutilization", "0.75");
-        SetProperty("dalvik.vm.heapminfree", "2m");
-        SetProperty("dalvik.vm.heapmaxfree", "8m");
+        property_set("ro.product.model", "YU5510");
+        property_set("dalvik.vm.heapstartsize", "16m");
+        property_set("dalvik.vm.heapgrowthlimit", "192m");
+        property_set("dalvik.vm.heapsize", "512m");
+        property_set("dalvik.vm.heaptargetutilization", "0.75");
+        property_set("dalvik.vm.heapminfree", "2m");
+        property_set("dalvik.vm.heapmaxfree", "8m");
     } else {
-        SetProperty("ro.product.model", "AO5510");
-        SetProperty("dalvik.vm.heapstartsize", "8m");
-        SetProperty("dalvik.vm.heapgrowthlimit", "192m");
-        SetProperty("dalvik.vm.heapsize", "512m");
-        SetProperty("dalvik.vm.heaptargetutilization", "0.75");
-        SetProperty("dalvik.vm.heapminfree", "512k");
-        SetProperty("dalvik.vm.heapmaxfree", "8m");
+        property_set("ro.product.model", "AO5510");
+        property_set("dalvik.vm.heapstartsize", "8m");
+        property_set("dalvik.vm.heapgrowthlimit", "192m");
+        property_set("dalvik.vm.heapsize", "512m");
+        property_set("dalvik.vm.heaptargetutilization", "0.75");
+        property_set("dalvik.vm.heapminfree", "512k");
+        property_set("dalvik.vm.heapmaxfree", "8m");
     }
 }
