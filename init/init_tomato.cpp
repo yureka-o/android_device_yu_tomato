@@ -38,7 +38,6 @@
 #include "init_msm8916.h"
 
 using android::base::GetProperty;
-using android::base::property_set;
 
 static int display_density = 320;
 
