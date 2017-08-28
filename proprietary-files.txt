@@ -282,7 +282,7 @@ lib64/librilqmiservices.so|f2e5672219ea59c479f2389c70ac0907a7a78265
 vendor/lib64/libcneapiclient.so|f111dad42ce618fc6c4f79f08c7427235bb041f9
 vendor/lib64/libconfigdb.so|672cef86baab5ed9e4683c527f762c8accdff493
 vendor/lib64/liblqe.so|cb61ddbbd43e46ae56ef5f98c47b631d58808326
-vendor/lib64/libmdmdetect.so|67760bce9c33e844924cdef4ce7e6bcc2ccee46d
+-vendor/lib64/libmdmdetect.so|67760bce9c33e844924cdef4ce7e6bcc2ccee46d
 vendor/lib64/libnetmgr.so|eb1d3db436403428f2d6bcba8a141a3faaf332a8
 vendor/lib64/libperipheral_client.so|ac882d73f7279065fffe4ca040246103a3154c1c
 vendor/lib64/libprotobuf-cpp-biss.so|2ff21ed0d227c1b14724ae86984dc311cbfbd767
@@ -294,7 +294,7 @@ vendor/lib64/libril-qcril-hook-oem.so|f651e4a0b6a5e0a38660dd8c2a5ded71ae14efb9
 vendor/lib64/libsettings.so|f8d6d56e365ae30272505108706eee5966d619fb
 vendor/lib64/libsystem_health_mon.so|71adfec8a25dae86d5ad9bc54e9a88ea4fcc2b35
 vendor/lib64/libxml.so|26d53a36db5ea231729a85f385638afff4a2fe60
-vendor/lib/libmdmdetect.so|2c57282fce7367471e44a35305ace773ae89fd30
+-vendor/lib/libmdmdetect.so|2c57282fce7367471e44a35305ace773ae89fd30
 vendor/lib/libprotobuf-cpp-biss.so|e8d582d4f90fa56fcde929924a3312634c97147f
 vendor/lib/libprotobuf-cpp-shit.so|d36114ee2387d458c3bb80d43b48c842edc33fda
 
